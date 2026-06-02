@@ -1,0 +1,68 @@
+{
+  "threshold_used": 0.41,
+  "expected_results": [
+    {
+      "student_id": "early_day30_high_risk_low_engagement",
+      "day": 30,
+      "risk_probability": 0.9811,
+      "risk_level": "HIGH",
+      "at_risk": 1
+    },
+    {
+      "student_id": "final_day150_high_risk_no_recent_activity",
+      "day": 150,
+      "risk_probability": 0.93,
+      "risk_level": "HIGH",
+      "at_risk": 1
+    },
+    {
+      "student_id": "late_day90_high_risk_declining",
+      "day": 90,
+      "risk_probability": 0.9281,
+      "risk_level": "HIGH",
+      "at_risk": 1
+    },
+    {
+      "student_id": "middle_day60_high_risk_bad_scores",
+      "day": 60,
+      "risk_probability": 0.8961,
+      "risk_level": "HIGH",
+      "at_risk": 1
+    },
+    {
+      "student_id": "early_day0_high_risk_no_data",
+      "day": 0,
+      "risk_probability": 0.5409,
+      "risk_level": "MEDIUM",
+      "at_risk": 1
+    },
+    {
+      "student_id": "middle_day60_low_risk_good_progress",
+      "day": 60,
+      "risk_probability": 0.3727,
+      "risk_level": "LOW",
+      "at_risk": 0
+    },
+    {
+      "student_id": "early_day30_low_risk_good_start",
+      "day": 30,
+      "risk_probability": 0.3394,
+      "risk_level": "LOW",
+      "at_risk": 0
+    },
+    {
+      "student_id": "early_day0_low_risk_active",
+      "day": 0,
+      "risk_probability": 0.3293,
+      "risk_level": "LOW",
+      "at_risk": 0
+    },
+    {
+      "student_id": "final_day150_low_risk_strong",
+      "day": 150,
+      "risk_probability": 0.3093,
+      "risk_level": "LOW",
+      "at_risk": 0
+    }
+  ]
+}
