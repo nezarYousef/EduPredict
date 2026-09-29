@@ -54,6 +54,52 @@ class PredictRequest(BaseModel):
         return v
 
 
+class ScenarioClick(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    date: int = Field(ge=0)
+    clicks: int = Field(ge=1)
+
+
+class ScenarioInputs(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    quiz_clicks: int = Field(default=0, ge=0)
+    forum_clicks: int = Field(default=0, ge=0)
+    resource_clicks: int = Field(default=0, ge=0)
+    activity_days: int = Field(default=1, ge=1)
+    latest_tma_score: Optional[float] = Field(default=None, ge=0, le=100)
+    tma_delay_days: Optional[int] = Field(default=None, ge=0)
+    latest_cma_score: Optional[float] = Field(default=None, ge=0, le=100)
+    cma_delay_days: Optional[int] = Field(default=None, ge=0)
+    new_submission_type: Optional[str] = None
+    new_submission_score: Optional[float] = Field(default=None, ge=0, le=100)
+    new_submission_delay_days: Optional[int] = Field(default=None, ge=0)
+
+    @field_validator("new_submission_type")
+    @classmethod
+    def submission_type(cls, value):
+        if value is not None and value not in ("TMA", "CMA"):
+            raise ValueError("new_submission_type must be TMA or CMA")
+        return value
+
+
+class ScenarioActivity(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    quiz_clicks: list[ScenarioClick] = Field(default_factory=list)
+    forum_clicks: list[ScenarioClick] = Field(default_factory=list)
+    resource_clicks: list[ScenarioClick] = Field(default_factory=list)
+
+
+class ScenarioEvidence(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    based_on_day: int = Field(ge=0)
+    inputs: ScenarioInputs
+    activity: ScenarioActivity
+
+
 # ---- batch request: list of students ----
 class BatchItem(BaseModel):
     student_id:    str | int
