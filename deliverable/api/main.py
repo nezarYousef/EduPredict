@@ -19,9 +19,11 @@ from schemas import (
     HealthResponse,
     PredictRequest,
     PredictResponse,
+    ScenarioEvidence,
 )
-from student_data import build_student_prediction_request, save_prediction
+from student_data import build_student_prediction_request, next_assessment_due_date, save_prediction
 from db import get_connection
+from scenario_data import apply_scenario
 
 
 predictor: EduPredictor | None = None
@@ -171,6 +173,41 @@ def predict_student_from_database(
     except Exception as e:
         raise service_error("prediction save", e, database=True) from None
     return response
+
+
+@app.post(
+    "/students/{id_student}/scenario-prediction",
+    response_model=PredictResponse,
+    tags=["students"],
+)
+def predict_student_scenario(
+    id_student: int,
+    scenario: ScenarioEvidence,
+    code_module: Optional[str] = None,
+    code_presentation: Optional[str] = None,
+):
+    if predictor is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    try:
+        enrollment_id, base = build_student_prediction_request(
+            id_student=id_student,
+            code_module=code_module,
+            code_presentation=code_presentation,
+        )
+        hypothetical = apply_scenario(
+            base, scenario, enrollment_id, next_assessment_due_date
+        )
+    except LookupError:
+        raise HTTPException(status_code=404, detail="No enrollment found for this student") from None
+    except ValueError:
+        raise HTTPException(status_code=422, detail="Scenario evidence is invalid or stale.") from None
+    except Exception as error:
+        raise service_error("scenario data load", error, database=True) from None
+    try:
+        # Never write this result to the real predictions table.
+        return predictor.predict(hypothetical)
+    except Exception as error:
+        raise service_error("scenario prediction", error) from None
 
 
 @app.get("/admin/clock", tags=["admin"], dependencies=[Depends(verify_admin_key)])

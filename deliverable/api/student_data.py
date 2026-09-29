@@ -146,7 +146,7 @@ def build_student_prediction_request(
                     ON a.id_assessment = sa.id_assessment
                 WHERE sa.enrollment_id = %(enrollment_id)s
                   AND sa.date_submitted <= %(day_of_course)s
-                ORDER BY sa.date_submitted
+                ORDER BY sa.date_submitted, sa.id
                 """,
                 {
                     "enrollment_id": base["enrollment_id"],
@@ -182,6 +182,29 @@ def build_student_prediction_request(
         threshold=threshold,
     )
     return base["enrollment_id"], req
+
+
+def next_assessment_due_date(enrollment_id: int, assessment_type: str) -> Optional[int]:
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT a.date
+                FROM assessments a
+                JOIN enrollments e ON e.course_presentation_id = a.course_presentation_id
+                WHERE e.id = %(enrollment_id)s
+                  AND a.assessment_type = %(assessment_type)s
+                  AND NOT EXISTS (
+                    SELECT 1 FROM student_assessments sa
+                    WHERE sa.enrollment_id = e.id AND sa.id_assessment = a.id_assessment
+                  )
+                ORDER BY a.date NULLS LAST, a.id_assessment
+                LIMIT 1
+                """,
+                {"enrollment_id": enrollment_id, "assessment_type": assessment_type},
+            )
+            row = cur.fetchone()
+    return row["date"] if row else None
 
 
 def save_prediction(enrollment_id: int, response: PredictResponse) -> None:
