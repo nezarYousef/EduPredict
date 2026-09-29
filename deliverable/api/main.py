@@ -1,8 +1,10 @@
 from contextlib import asynccontextmanager
+import logging
 import os
 from typing import Optional
 
 from fastapi import Depends, FastAPI, Header, HTTPException
+import psycopg
 
 from admin_data import (
     list_clocks,
@@ -19,9 +21,27 @@ from schemas import (
     PredictResponse,
 )
 from student_data import build_student_prediction_request, save_prediction
+from db import get_connection
 
 
 predictor: EduPredictor | None = None
+logger = logging.getLogger(__name__)
+
+
+def service_error(stage: str, error: Exception, *, database: bool = False) -> HTTPException:
+    # Exception messages can contain connection strings, SQL, or student data.
+    logger.error(
+        "EduPredict %s failed: %s (sqlstate=%s)",
+        stage,
+        type(error).__name__,
+        getattr(error, "sqlstate", None),
+    )
+    if database and isinstance(error, (psycopg.Error, OSError, RuntimeError)):
+        return HTTPException(
+            status_code=503,
+            detail="Prediction data service is temporarily unavailable.",
+        )
+    return HTTPException(status_code=500, detail="Prediction service is temporarily unavailable.")
 
 
 def verify_admin_key(x_admin_key: Optional[str] = Header(default=None)) -> None:
@@ -65,6 +85,25 @@ def health():
     )
 
 
+@app.get("/ready", tags=["system"])
+def ready():
+    if predictor is None:
+        raise HTTPException(status_code=503, detail="Prediction service is temporarily unavailable.")
+    try:
+        with get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute("SELECT 1")
+                cur.fetchone()
+    except Exception as error:
+        logger.error(
+            "EduPredict readiness database check failed: %s (sqlstate=%s)",
+            type(error).__name__,
+            getattr(error, "sqlstate", None),
+        )
+        raise HTTPException(status_code=503, detail="Prediction data service is temporarily unavailable.") from None
+    return {"status": "ready"}
+
+
 @app.post("/predict", response_model=PredictResponse, tags=["prediction"])
 def predict(req: PredictRequest):
     if predictor is None:
@@ -73,7 +112,7 @@ def predict(req: PredictRequest):
     try:
         return predictor.predict(req)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("predict", e) from None
 
 
 @app.post("/predict/batch", response_model=BatchResponse, tags=["prediction"])
@@ -93,7 +132,7 @@ def predict_batch(req: BatchRequest):
     try:
         return predictor.predict_batch(req)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("predict batch", e) from None
 
 
 @app.get(
@@ -117,25 +156,29 @@ def predict_student_from_database(
             code_presentation=code_presentation,
             threshold=threshold,
         )
-        response = predictor.predict(req)
-        save_prediction(enrollment_id, response)
-        return response
-    except LookupError as e:
-        raise HTTPException(status_code=404, detail=str(e))
-    except RuntimeError as e:
-        raise HTTPException(status_code=503, detail=str(e))
+    except LookupError:
+        raise HTTPException(status_code=404, detail="No enrollment found for this student") from None
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("student data load", e, database=True) from None
+
+    try:
+        response = predictor.predict(req)
+    except Exception as e:
+        raise service_error("student prediction", e) from None
+
+    try:
+        save_prediction(enrollment_id, response)
+    except Exception as e:
+        raise service_error("prediction save", e, database=True) from None
+    return response
 
 
 @app.get("/admin/clock", tags=["admin"], dependencies=[Depends(verify_admin_key)])
 def admin_list_clocks():
     try:
         return {"clocks": list_clocks()}
-    except RuntimeError as e:
-        raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("list clocks", e, database=True) from None
 
 
 @app.post("/admin/clock/tick", tags=["admin"])
@@ -152,12 +195,10 @@ def admin_tick_clock(
             code_presentation=code_presentation,
             tick_days=days,
         )
-    except LookupError as e:
-        raise HTTPException(status_code=404, detail=str(e))
-    except RuntimeError as e:
-        raise HTTPException(status_code=503, detail=str(e))
+    except LookupError:
+        raise HTTPException(status_code=404, detail="Clock not found") from None
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("tick clock", e, database=True) from None
 
 
 @app.post("/admin/clock/reset", tags=["admin"])
@@ -174,12 +215,10 @@ def admin_reset_clock(
             code_presentation=code_presentation,
             current_day=day,
         )
-    except LookupError as e:
-        raise HTTPException(status_code=404, detail=str(e))
-    except RuntimeError as e:
-        raise HTTPException(status_code=503, detail=str(e))
+    except LookupError:
+        raise HTTPException(status_code=404, detail="Clock not found") from None
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("reset clock", e, database=True) from None
 
 
 @app.post(
@@ -193,10 +232,8 @@ def admin_run_demo_predictions(limit: int = 150):
 
     try:
         return run_demo_predictions(predictor, limit=limit)
-    except RuntimeError as e:
-        raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("run demo predictions", e, database=True) from None
 
 
 @app.get("/admin/students/at-risk", tags=["admin"])
@@ -215,7 +252,5 @@ def admin_list_at_risk_students(
                 limit=limit,
             )
         }
-    except RuntimeError as e:
-        raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        raise service_error("list at-risk students", e, database=True) from None
