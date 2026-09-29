@@ -14,7 +14,7 @@ def database_url() -> str:
 
 @contextmanager
 def get_connection():
-    conn = psycopg.connect(database_url(), row_factory=dict_row)
+    conn = psycopg.connect(database_url(), row_factory=dict_row, connect_timeout=5)
     try:
         yield conn
     finally:
