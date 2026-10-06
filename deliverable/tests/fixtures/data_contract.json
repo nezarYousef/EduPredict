@@ -1,0 +1,251 @@
+{
+  "enrollment": 32603,
+  "request": {
+    "day_of_course": 60,
+    "demographics": {
+      "code_module": "BBB",
+      "gender_bin": 1,
+      "disability_bin": 1,
+      "age_numeric": 1,
+      "edu_numeric": 3,
+      "imd_numeric": 15.0,
+      "num_of_prev_attempts": 0,
+      "studied_credits": 1,
+      "module_total_assessments": 1,
+      "course_length": 240
+    },
+    "vle_log": [
+      {
+        "date": -1,
+        "sum_click": 0,
+        "activity_type": "other"
+      },
+      {
+        "date": 60,
+        "sum_click": 17,
+        "activity_type": "quiz"
+      }
+    ],
+    "assess_log": [
+      {
+        "date_submitted": 30,
+        "score": 0.0,
+        "assessment_type": "TMA",
+        "date": null
+      },
+      {
+        "date_submitted": 60,
+        "score": 39.5,
+        "assessment_type": "CMA",
+        "date": 55.5
+      }
+    ],
+    "threshold": 0.6
+  },
+  "load_events": [
+    "connection enter",
+    "cursor enter",
+    {
+      "sql": "SELECT pbv.enrollment_id, pbv.id_student, pbv.code_module, pbv.code_presentation, ac.current_day AS day_of_course, pbv.gender, pbv.disability, pbv.age_band, pbv.highest_education, pbv.imd_band, pbv.num_of_prev_attempts, pbv.studied_credits, pbv.module_total_assessments, pbv.course_length FROM prediction_base_view pbv JOIN enrollments e ON e.id = pbv.enrollment_id JOIN academic_clocks ac ON ac.course_presentation_id = e.course_presentation_id WHERE pbv.id_student = %(id_student)s AND pbv.code_module = %(code_module)s AND pbv.code_presentation = %(code_presentation)s ORDER BY pbv.enrollment_id LIMIT 1",
+      "params": {
+        "id_student": 2026,
+        "code_module": "BBB",
+        "code_presentation": "2013B"
+      }
+    },
+    "fetchone",
+    {
+      "sql": "SELECT sve.date, sve.sum_click, vs.activity_type FROM student_vle_events sve JOIN vle_sites vs ON vs.id_site = sve.id_site WHERE sve.enrollment_id = %(enrollment_id)s AND sve.date <= %(day_of_course)s ORDER BY sve.date",
+      "params": {
+        "enrollment_id": 32603,
+        "day_of_course": 60
+      }
+    },
+    "fetchall",
+    {
+      "sql": "SELECT sa.date_submitted, sa.score, a.assessment_type, a.date FROM student_assessments sa JOIN assessments a ON a.id_assessment = sa.id_assessment WHERE sa.enrollment_id = %(enrollment_id)s AND sa.date_submitted <= %(day_of_course)s ORDER BY sa.date_submitted, sa.id",
+      "params": {
+        "enrollment_id": 32603,
+        "day_of_course": 60
+      }
+    },
+    "fetchall",
+    "cursor close",
+    "connection close"
+  ],
+  "save_events": [
+    "connection enter",
+    "cursor enter",
+    {
+      "sql": "INSERT INTO predictions ( enrollment_id, day_of_course, risk_probability, risk_level, at_risk, threshold_used, recommended_action, explanation, model_confidence, data_completeness ) VALUES ( %(enrollment_id)s, %(day_of_course)s, %(risk_probability)s, %(risk_level)s, %(at_risk)s, %(threshold_used)s, %(recommended_action)s, %(explanation)s, %(model_confidence)s, %(data_completeness)s ) ON CONFLICT (enrollment_id, day_of_course) DO UPDATE SET risk_probability = EXCLUDED.risk_probability, risk_level = EXCLUDED.risk_level, at_risk = EXCLUDED.at_risk, threshold_used = EXCLUDED.threshold_used, recommended_action = EXCLUDED.recommended_action, explanation = EXCLUDED.explanation, model_confidence = EXCLUDED.model_confidence, data_completeness = EXCLUDED.data_completeness, created_at = NOW()",
+      "params": {
+        "enrollment_id": 32603,
+        "day_of_course": 60,
+        "risk_probability": 0.92,
+        "risk_level": "HIGH",
+        "at_risk": true,
+        "threshold_used": 0.41,
+        "recommended_action": "Contact student immediately",
+        "explanation": {
+          "adapter": "Json",
+          "value": [
+            "Low engagement"
+          ]
+        },
+        "model_confidence": {
+          "adapter": "Json",
+          "value": {
+            "day_of_course": 60,
+            "closest_snapshot": 60,
+            "expected_f1": 0.8,
+            "expected_auc": 0.89
+          }
+        },
+        "data_completeness": {
+          "adapter": "Json",
+          "value": {
+            "has_vle_data": true,
+            "has_assessment_data": true,
+            "features_available": 29,
+            "features_total": 31,
+            "completeness_pct": 93.5
+          }
+        }
+      }
+    },
+    "cursor close",
+    "commit",
+    "connection close"
+  ],
+  "demo_requests": [
+    {
+      "day_of_course": 60,
+      "demographics": {
+        "code_module": "BBB",
+        "gender_bin": 1,
+        "disability_bin": 1,
+        "age_numeric": 1,
+        "edu_numeric": 3,
+        "imd_numeric": 15.0,
+        "num_of_prev_attempts": 0,
+        "studied_credits": 1,
+        "module_total_assessments": 1,
+        "course_length": 240
+      },
+      "vle_log": [
+        {
+          "date": -1,
+          "sum_click": 0,
+          "activity_type": "other"
+        },
+        {
+          "date": 60,
+          "sum_click": 17,
+          "activity_type": "quiz"
+        }
+      ],
+      "assess_log": [
+        {
+          "date_submitted": 30,
+          "score": 0.0,
+          "assessment_type": "TMA",
+          "date": null
+        },
+        {
+          "date_submitted": 60,
+          "score": 39.5,
+          "assessment_type": "CMA",
+          "date": 55.5
+        }
+      ],
+      "threshold": null
+    }
+  ],
+  "demo_events": [
+    "connection enter",
+    "cursor enter",
+    {
+      "sql": "SELECT pbv.enrollment_id, pbv.id_student, pbv.code_module, pbv.code_presentation, ac.current_day AS day_of_course, pbv.gender, pbv.disability, pbv.age_band, pbv.highest_education, pbv.imd_band, pbv.num_of_prev_attempts, pbv.studied_credits, pbv.module_total_assessments, pbv.course_length FROM demo_enrollments de JOIN prediction_base_view pbv ON pbv.enrollment_id = de.enrollment_id JOIN enrollments e ON e.id = pbv.enrollment_id JOIN academic_clocks ac ON ac.course_presentation_id = e.course_presentation_id ORDER BY pbv.enrollment_id LIMIT %(limit)s",
+      "params": {
+        "limit": 7
+      }
+    },
+    "fetchall",
+    {
+      "sql": "SELECT sve.enrollment_id, sve.date, sve.sum_click, vs.activity_type FROM student_vle_events sve JOIN vle_sites vs ON vs.id_site = sve.id_site WHERE sve.enrollment_id = ANY(%(enrollment_ids)s) ORDER BY sve.enrollment_id, sve.date",
+      "params": {
+        "enrollment_ids": [
+          32603
+        ]
+      }
+    },
+    "fetchall",
+    {
+      "sql": "SELECT sa.enrollment_id, sa.date_submitted, sa.score, a.assessment_type, a.date FROM student_assessments sa JOIN assessments a ON a.id_assessment = sa.id_assessment WHERE sa.enrollment_id = ANY(%(enrollment_ids)s) ORDER BY sa.enrollment_id, sa.date_submitted",
+      "params": {
+        "enrollment_ids": [
+          32603
+        ]
+      }
+    },
+    "fetchall",
+    {
+      "sql": "INSERT INTO predictions ( enrollment_id, day_of_course, risk_probability, risk_level, at_risk, threshold_used, recommended_action, explanation, model_confidence, data_completeness ) VALUES ( %(enrollment_id)s, %(day_of_course)s, %(risk_probability)s, %(risk_level)s, %(at_risk)s, %(threshold_used)s, %(recommended_action)s, %(explanation)s, %(model_confidence)s, %(data_completeness)s ) ON CONFLICT (enrollment_id, day_of_course) DO UPDATE SET risk_probability = EXCLUDED.risk_probability, risk_level = EXCLUDED.risk_level, at_risk = EXCLUDED.at_risk, threshold_used = EXCLUDED.threshold_used, recommended_action = EXCLUDED.recommended_action, explanation = EXCLUDED.explanation, model_confidence = EXCLUDED.model_confidence, data_completeness = EXCLUDED.data_completeness, created_at = NOW()",
+      "params": {
+        "enrollment_id": 32603,
+        "day_of_course": 60,
+        "risk_probability": 0.92,
+        "risk_level": "HIGH",
+        "at_risk": true,
+        "threshold_used": 0.41,
+        "recommended_action": "Contact student immediately",
+        "explanation": {
+          "adapter": "Json",
+          "value": [
+            "Low engagement"
+          ]
+        },
+        "model_confidence": {
+          "adapter": "Json",
+          "value": {
+            "day_of_course": 60,
+            "closest_snapshot": 60,
+            "expected_f1": 0.8,
+            "expected_auc": 0.89
+          }
+        },
+        "data_completeness": {
+          "adapter": "Json",
+          "value": {
+            "has_vle_data": true,
+            "has_assessment_data": true,
+            "features_available": 29,
+            "features_total": 31,
+            "completeness_pct": 93.5
+          }
+        }
+      }
+    },
+    "cursor close",
+    "commit",
+    "connection close"
+  ],
+  "demo_summary": {
+    "total_students": 1,
+    "high_risk_count": 1,
+    "medium_risk_count": 0,
+    "low_risk_count": 0,
+    "results": [
+      {
+        "enrollment_id": 32603,
+        "id_student": 2026,
+        "code_module": "BBB",
+        "code_presentation": "2013B",
+        "risk_probability": 0.92,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "day_of_course": 60
+      }
+    ]
+  }
+}
