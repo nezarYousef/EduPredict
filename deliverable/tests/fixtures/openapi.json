@@ -1,0 +1,1355 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "EduPredict API",
+    "description": "Real-time student at-risk prediction",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HealthResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Ready",
+        "operationId": "ready_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/predict": {
+      "post": {
+        "tags": [
+          "prediction"
+        ],
+        "summary": "Predict",
+        "operationId": "predict_predict_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PredictRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/predict/batch": {
+      "post": {
+        "tags": [
+          "prediction"
+        ],
+        "summary": "Predict Batch",
+        "operationId": "predict_batch_predict_batch_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BatchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BatchResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{id_student}/prediction": {
+      "get": {
+        "tags": [
+          "students"
+        ],
+        "summary": "Predict Student From Database",
+        "operationId": "predict_student_from_database_students__id_student__prediction_get",
+        "parameters": [
+          {
+            "name": "id_student",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id Student"
+            }
+          },
+          {
+            "name": "code_module",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Code Module"
+            }
+          },
+          {
+            "name": "code_presentation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Code Presentation"
+            }
+          },
+          {
+            "name": "threshold",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Threshold"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/students/{id_student}/scenario-prediction": {
+      "post": {
+        "tags": [
+          "students"
+        ],
+        "summary": "Predict Student Scenario",
+        "operationId": "predict_student_scenario_students__id_student__scenario_prediction_post",
+        "parameters": [
+          {
+            "name": "id_student",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "title": "Id Student"
+            }
+          },
+          {
+            "name": "code_module",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Code Module"
+            }
+          },
+          {
+            "name": "code_presentation",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Code Presentation"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ScenarioEvidence"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PredictResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/clock": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "Admin List Clocks",
+        "operationId": "admin_list_clocks_admin_clock_get",
+        "parameters": [
+          {
+            "name": "x-admin-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Admin-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/clock/tick": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "Admin Tick Clock",
+        "operationId": "admin_tick_clock_admin_clock_tick_post",
+        "parameters": [
+          {
+            "name": "code_module",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code Module"
+            }
+          },
+          {
+            "name": "code_presentation",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code Presentation"
+            }
+          },
+          {
+            "name": "days",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "title": "Days"
+            }
+          },
+          {
+            "name": "x-admin-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Admin-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/clock/reset": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "Admin Reset Clock",
+        "operationId": "admin_reset_clock_admin_clock_reset_post",
+        "parameters": [
+          {
+            "name": "code_module",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code Module"
+            }
+          },
+          {
+            "name": "code_presentation",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code Presentation"
+            }
+          },
+          {
+            "name": "day",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 60,
+              "title": "Day"
+            }
+          },
+          {
+            "name": "x-admin-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Admin-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/predictions/run-demo": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "Admin Run Demo Predictions",
+        "operationId": "admin_run_demo_predictions_admin_predictions_run_demo_post",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 150,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "x-admin-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Admin-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/students/at-risk": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "Admin List At Risk Students",
+        "operationId": "admin_list_at_risk_students_admin_students_at_risk_get",
+        "parameters": [
+          {
+            "name": "risk_level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Risk Level"
+            }
+          },
+          {
+            "name": "at_risk",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At Risk"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "title": "Limit"
+            }
+          },
+          {
+            "name": "x-admin-key",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "X-Admin-Key"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AssessmentSubmission": {
+        "properties": {
+          "date_submitted": {
+            "type": "integer",
+            "title": "Date Submitted"
+          },
+          "score": {
+            "type": "number",
+            "title": "Score"
+          },
+          "assessment_type": {
+            "type": "string",
+            "title": "Assessment Type"
+          },
+          "date": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Date"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date_submitted",
+          "score",
+          "assessment_type"
+        ],
+        "title": "AssessmentSubmission"
+      },
+      "BatchItem": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "request": {
+            "$ref": "#/components/schemas/PredictRequest"
+          }
+        },
+        "type": "object",
+        "required": [
+          "student_id",
+          "request"
+        ],
+        "title": "BatchItem"
+      },
+      "BatchRequest": {
+        "properties": {
+          "students": {
+            "items": {
+              "$ref": "#/components/schemas/BatchItem"
+            },
+            "type": "array",
+            "title": "Students"
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          }
+        },
+        "type": "object",
+        "required": [
+          "students"
+        ],
+        "title": "BatchRequest"
+      },
+      "BatchResponse": {
+        "properties": {
+          "total_students": {
+            "type": "integer",
+            "title": "Total Students"
+          },
+          "high_risk_count": {
+            "type": "integer",
+            "title": "High Risk Count"
+          },
+          "medium_risk_count": {
+            "type": "integer",
+            "title": "Medium Risk Count"
+          },
+          "low_risk_count": {
+            "type": "integer",
+            "title": "Low Risk Count"
+          },
+          "threshold_used": {
+            "type": "number",
+            "title": "Threshold Used"
+          },
+          "results": {
+            "items": {
+              "$ref": "#/components/schemas/BatchStudentResult"
+            },
+            "type": "array",
+            "title": "Results"
+          }
+        },
+        "type": "object",
+        "required": [
+          "total_students",
+          "high_risk_count",
+          "medium_risk_count",
+          "low_risk_count",
+          "threshold_used",
+          "results"
+        ],
+        "title": "BatchResponse"
+      },
+      "BatchStudentResult": {
+        "properties": {
+          "student_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              }
+            ],
+            "title": "Student Id"
+          },
+          "risk_probability": {
+            "type": "number",
+            "title": "Risk Probability"
+          },
+          "risk_level": {
+            "$ref": "#/components/schemas/RiskLevel"
+          },
+          "at_risk": {
+            "type": "integer",
+            "title": "At Risk"
+          },
+          "explanation": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Explanation"
+          },
+          "completeness_pct": {
+            "type": "number",
+            "title": "Completeness Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "student_id",
+          "risk_probability",
+          "risk_level",
+          "at_risk",
+          "explanation",
+          "completeness_pct"
+        ],
+        "title": "BatchStudentResult"
+      },
+      "DataCompleteness": {
+        "properties": {
+          "has_vle_data": {
+            "type": "boolean",
+            "title": "Has Vle Data"
+          },
+          "has_assessment_data": {
+            "type": "boolean",
+            "title": "Has Assessment Data"
+          },
+          "features_available": {
+            "type": "integer",
+            "title": "Features Available"
+          },
+          "features_total": {
+            "type": "integer",
+            "title": "Features Total"
+          },
+          "completeness_pct": {
+            "type": "number",
+            "title": "Completeness Pct"
+          }
+        },
+        "type": "object",
+        "required": [
+          "has_vle_data",
+          "has_assessment_data",
+          "features_available",
+          "features_total",
+          "completeness_pct"
+        ],
+        "title": "DataCompleteness"
+      },
+      "Demographics": {
+        "properties": {
+          "code_module": {
+            "type": "string",
+            "title": "Code Module"
+          },
+          "gender_bin": {
+            "type": "integer",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Gender Bin"
+          },
+          "disability_bin": {
+            "type": "integer",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Disability Bin"
+          },
+          "age_numeric": {
+            "type": "integer",
+            "maximum": 2.0,
+            "minimum": 0.0,
+            "title": "Age Numeric"
+          },
+          "edu_numeric": {
+            "type": "integer",
+            "maximum": 4.0,
+            "minimum": 0.0,
+            "title": "Edu Numeric"
+          },
+          "imd_numeric": {
+            "type": "number",
+            "maximum": 100.0,
+            "minimum": 0.0,
+            "title": "Imd Numeric"
+          },
+          "num_of_prev_attempts": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Num Of Prev Attempts"
+          },
+          "studied_credits": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Studied Credits"
+          },
+          "module_total_assessments": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Module Total Assessments"
+          },
+          "course_length": {
+            "type": "integer",
+            "exclusiveMinimum": 0.0,
+            "title": "Course Length"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code_module",
+          "gender_bin",
+          "disability_bin",
+          "age_numeric",
+          "edu_numeric",
+          "imd_numeric",
+          "num_of_prev_attempts",
+          "studied_credits",
+          "module_total_assessments",
+          "course_length"
+        ],
+        "title": "Demographics"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "HealthResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status"
+          },
+          "model_loaded": {
+            "type": "boolean",
+            "title": "Model Loaded"
+          },
+          "feature_count": {
+            "type": "integer",
+            "title": "Feature Count"
+          },
+          "snapshots": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array",
+            "title": "Snapshots"
+          },
+          "default_threshold": {
+            "type": "number",
+            "title": "Default Threshold"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "model_loaded",
+          "feature_count",
+          "snapshots",
+          "default_threshold"
+        ],
+        "title": "HealthResponse"
+      },
+      "ModelConfidence": {
+        "properties": {
+          "day_of_course": {
+            "type": "integer",
+            "title": "Day Of Course"
+          },
+          "closest_snapshot": {
+            "type": "integer",
+            "title": "Closest Snapshot"
+          },
+          "expected_f1": {
+            "type": "number",
+            "title": "Expected F1"
+          },
+          "expected_auc": {
+            "type": "number",
+            "title": "Expected Auc"
+          }
+        },
+        "type": "object",
+        "required": [
+          "day_of_course",
+          "closest_snapshot",
+          "expected_f1",
+          "expected_auc"
+        ],
+        "title": "ModelConfidence"
+      },
+      "PredictRequest": {
+        "properties": {
+          "day_of_course": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Day Of Course"
+          },
+          "demographics": {
+            "$ref": "#/components/schemas/Demographics"
+          },
+          "vle_log": {
+            "items": {
+              "$ref": "#/components/schemas/VLEEvent"
+            },
+            "type": "array",
+            "title": "Vle Log",
+            "default": []
+          },
+          "assess_log": {
+            "items": {
+              "$ref": "#/components/schemas/AssessmentSubmission"
+            },
+            "type": "array",
+            "title": "Assess Log",
+            "default": []
+          },
+          "threshold": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Threshold"
+          }
+        },
+        "type": "object",
+        "required": [
+          "day_of_course",
+          "demographics"
+        ],
+        "title": "PredictRequest"
+      },
+      "PredictResponse": {
+        "properties": {
+          "risk_probability": {
+            "type": "number",
+            "title": "Risk Probability"
+          },
+          "risk_level": {
+            "$ref": "#/components/schemas/RiskLevel"
+          },
+          "at_risk": {
+            "type": "integer",
+            "title": "At Risk"
+          },
+          "recommended_action": {
+            "type": "string",
+            "title": "Recommended Action"
+          },
+          "explanation": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Explanation"
+          },
+          "threshold_used": {
+            "type": "number",
+            "title": "Threshold Used"
+          },
+          "model_confidence": {
+            "$ref": "#/components/schemas/ModelConfidence"
+          },
+          "data_completeness": {
+            "$ref": "#/components/schemas/DataCompleteness"
+          }
+        },
+        "type": "object",
+        "required": [
+          "risk_probability",
+          "risk_level",
+          "at_risk",
+          "recommended_action",
+          "explanation",
+          "threshold_used",
+          "model_confidence",
+          "data_completeness"
+        ],
+        "title": "PredictResponse"
+      },
+      "RiskLevel": {
+        "type": "string",
+        "enum": [
+          "LOW",
+          "MEDIUM",
+          "HIGH"
+        ],
+        "title": "RiskLevel"
+      },
+      "ScenarioActivity": {
+        "properties": {
+          "quiz_clicks": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioClick"
+            },
+            "type": "array",
+            "title": "Quiz Clicks"
+          },
+          "forum_clicks": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioClick"
+            },
+            "type": "array",
+            "title": "Forum Clicks"
+          },
+          "resource_clicks": {
+            "items": {
+              "$ref": "#/components/schemas/ScenarioClick"
+            },
+            "type": "array",
+            "title": "Resource Clicks"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ScenarioActivity"
+      },
+      "ScenarioClick": {
+        "properties": {
+          "date": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Date"
+          },
+          "clicks": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Clicks"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "date",
+          "clicks"
+        ],
+        "title": "ScenarioClick"
+      },
+      "ScenarioEvidence": {
+        "properties": {
+          "based_on_day": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Based On Day"
+          },
+          "inputs": {
+            "$ref": "#/components/schemas/ScenarioInputs"
+          },
+          "activity": {
+            "$ref": "#/components/schemas/ScenarioActivity"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "based_on_day",
+          "inputs",
+          "activity"
+        ],
+        "title": "ScenarioEvidence"
+      },
+      "ScenarioInputs": {
+        "properties": {
+          "quiz_clicks": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Quiz Clicks",
+            "default": 0
+          },
+          "forum_clicks": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Forum Clicks",
+            "default": 0
+          },
+          "resource_clicks": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Resource Clicks",
+            "default": 0
+          },
+          "activity_days": {
+            "type": "integer",
+            "minimum": 1.0,
+            "title": "Activity Days",
+            "default": 1
+          },
+          "latest_tma_score": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Tma Score"
+          },
+          "tma_delay_days": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tma Delay Days"
+          },
+          "latest_cma_score": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Latest Cma Score"
+          },
+          "cma_delay_days": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Cma Delay Days"
+          },
+          "new_submission_type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "New Submission Type"
+          },
+          "new_submission_score": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "New Submission Score"
+          },
+          "new_submission_delay_days": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "New Submission Delay Days"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "ScenarioInputs"
+      },
+      "VLEEvent": {
+        "properties": {
+          "date": {
+            "type": "integer",
+            "title": "Date"
+          },
+          "sum_click": {
+            "type": "integer",
+            "title": "Sum Click"
+          },
+          "activity_type": {
+            "type": "string",
+            "title": "Activity Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "date",
+          "sum_click",
+          "activity_type"
+        ],
+        "title": "VLEEvent"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

@@ -1,0 +1,6727 @@
+{
+  "baseline_commit": "61375e66be256640d87e2a5e8eb3e67f231b7a52",
+  "model_sha256": "29dcd923ff9024a9966f84c8c9f5ff5fca71d0f6daf94d75fc498a9d2ae35757",
+  "cases": {
+    "empty_0": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.3389c8ce9fd32p-1",
+      "response": {
+        "risk_probability": 0.6007,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 0,
+          "closest_snapshot": 0,
+          "expected_f1": 0.7075,
+          "expected_auc": 0.7557
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "empty_1": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.1111111111111p-8"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.f749756ed61d2p-1",
+      "response": {
+        "risk_probability": 0.983,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 1,
+          "closest_snapshot": 0,
+          "expected_f1": 0.7075,
+          "expected_auc": 0.7557
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "empty_30": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+4"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-3"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.fb83976e9fe07p-1",
+      "response": {
+        "risk_probability": 0.9912,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 30,
+          "closest_snapshot": 30,
+          "expected_f1": 0.7624,
+          "expected_auc": 0.8492
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "empty_60": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.fd1b0e4ad2a22p-1",
+      "response": {
+        "risk_probability": 0.9943,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "empty_90": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.fe7e1f1502ce5p-1",
+      "response": {
+        "risk_probability": 0.9971,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 90,
+          "closest_snapshot": 90,
+          "expected_f1": 0.8338,
+          "expected_auc": 0.9128
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "empty_150": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.2c00000000000p+7"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p-1"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.ff02d5fe57b51p-1",
+      "response": {
+        "risk_probability": 0.9981,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 150,
+          "closest_snapshot": 150,
+          "expected_f1": 0.8812,
+          "expected_auc": 0.9496
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "empty_240": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.ff083aca1e393p-1",
+      "response": {
+        "risk_probability": 0.9981,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no assessment submissions yet",
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 240,
+          "closest_snapshot": 150,
+          "expected_f1": 0.8812,
+          "expected_auc": 0.9496
+        },
+        "data_completeness": {
+          "has_vle_data": false,
+          "has_assessment_data": false,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "boundaries": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.429a22747634bp-1",
+      "response": {
+        "risk_probability": 0.6301,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_AAA": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "AAA"
+          ],
+          "values": [
+            "AAA"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.375e4eb7de061p-1",
+      "response": {
+        "risk_probability": 0.6081,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_CCC": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "CCC"
+          ],
+          "values": [
+            "CCC"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.84518a1e8612fp-1",
+      "response": {
+        "risk_probability": 0.7584,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_DDD": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "DDD"
+          ],
+          "values": [
+            "DDD"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.4ae995a1f5006p-1",
+      "response": {
+        "risk_probability": 0.6463,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_EEE": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "EEE"
+          ],
+          "values": [
+            "EEE"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.2ecc273f3dc8cp-1",
+      "response": {
+        "risk_probability": 0.5914,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_FFF": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "FFF"
+          ],
+          "values": [
+            "FFF"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.81a338a5d3696p-1",
+      "response": {
+        "risk_probability": 0.7532,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_GGG": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "GGG"
+          ],
+          "values": [
+            "GGG"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.29a4e1ae3efc1p-1",
+      "response": {
+        "risk_probability": 0.5813,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "module_UNKNOWN": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "UNKNOWN"
+          ],
+          "values": [
+            "UNKNOWN"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.38bd6cd35a869p-1",
+      "response": {
+        "risk_probability": 0.6108,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "override_low": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.429a22747634bp-1",
+      "response": {
+        "risk_probability": 0.6301,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.01,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "override_high": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.5000000000000p+5"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5000000000000p+6"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0cccccccccccdp+4"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3400000000000p+6"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c2aaaaaaaaaabp+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.3800000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.9400000000000p+5"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-1"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.429a22747634bp-1",
+      "response": {
+        "risk_probability": 0.6301,
+        "risk_level": "LOW",
+        "at_risk": 0,
+        "recommended_action": "No action needed",
+        "explanation": [
+          "score declining (-50.5 points)",
+          "engagement dropping (-42 clicks second half)"
+        ],
+        "threshold_used": 0.99,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    },
+    "future_only": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.fd1b0e4ad2a22p-1",
+      "response": {
+        "risk_probability": 0.9943,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "no VLE activity recorded yet"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 11,
+          "features_total": 31,
+          "completeness_pct": 35.5
+        }
+      }
+    },
+    "scenario_base": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.d800000000000p+5"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.1111111111111p-6"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-2"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "NaN"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.c80ef5b0b0a78p-1",
+      "response": {
+        "risk_probability": 0.8907,
+        "risk_level": "HIGH",
+        "at_risk": 1,
+        "recommended_action": "Contact student immediately",
+        "explanation": [
+          "below-average scores (avg 50.0)",
+          "very low platform engagement (5 clicks)",
+          "no activity for 59 days"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 28,
+          "features_total": 31,
+          "completeness_pct": 90.3
+        }
+      }
+    },
+    "scenario_overlay": {
+      "features": [
+        {
+          "name": "code_module",
+          "dtype": "category",
+          "categories": [
+            "BBB"
+          ],
+          "values": [
+            "BBB"
+          ]
+        },
+        {
+          "name": "gender_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "disability_bin",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "age_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+0"
+          ]
+        },
+        {
+          "name": "edu_numeric",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "imd_numeric",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.9000000000000p+5"
+          ]
+        },
+        {
+          "name": "num_of_prev_attempts",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "studied_credits",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "module_total_assessments",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+1"
+          ]
+        },
+        {
+          "name": "course_length",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+7"
+          ]
+        },
+        {
+          "name": "days_into_course",
+          "dtype": "int64",
+          "categories": null,
+          "values": [
+            "0x1.e000000000000p+5"
+          ]
+        },
+        {
+          "name": "snapshot_progress",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p-2"
+          ]
+        },
+        {
+          "name": "click_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+2"
+          ]
+        },
+        {
+          "name": "total_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c000000000000p+3"
+          ]
+        },
+        {
+          "name": "active_days",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+2"
+          ]
+        },
+        {
+          "name": "avg_clicks_per_day",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.c000000000000p+1"
+          ]
+        },
+        {
+          "name": "quiz_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.2000000000000p+3"
+          ]
+        },
+        {
+          "name": "forumng_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "resource_clicks",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+2"
+          ]
+        },
+        {
+          "name": "clicked_before_start",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "days_since_last_click",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "click_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.1111111111111p-4"
+          ]
+        },
+        {
+          "name": "avg_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5400000000000p+6"
+          ]
+        },
+        {
+          "name": "num_submitted",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.0000000000000p+1"
+          ]
+        },
+        {
+          "name": "num_failed",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        },
+        {
+          "name": "submission_rate",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.5555555555555p-1"
+          ]
+        },
+        {
+          "name": "avg_tma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.6800000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_cma_score",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.4000000000000p+6"
+          ]
+        },
+        {
+          "name": "avg_days_late",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x1.8000000000000p+0"
+          ]
+        },
+        {
+          "name": "score_trend",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "-0x1.4000000000000p+3"
+          ]
+        },
+        {
+          "name": "submission_consistency",
+          "dtype": "float64",
+          "categories": null,
+          "values": [
+            "0x0.0p+0"
+          ]
+        }
+      ],
+      "raw_probability": "0x1.583ceb3702ac4p-1",
+      "response": {
+        "risk_probability": 0.6723,
+        "risk_level": "MEDIUM",
+        "at_risk": 1,
+        "recommended_action": "Monitor closely, send reminder",
+        "explanation": [
+          "very low platform engagement (14 clicks)"
+        ],
+        "threshold_used": 0.41,
+        "model_confidence": {
+          "day_of_course": 60,
+          "closest_snapshot": 60,
+          "expected_f1": 0.8083,
+          "expected_auc": 0.891
+        },
+        "data_completeness": {
+          "has_vle_data": true,
+          "has_assessment_data": true,
+          "features_available": 30,
+          "features_total": 31,
+          "completeness_pct": 96.8
+        }
+      }
+    }
+  },
+  "batches": {
+    "None": {
+      "total_students": 20,
+      "high_risk_count": 10,
+      "medium_risk_count": 9,
+      "low_risk_count": 1,
+      "threshold_used": 0.41,
+      "results": [
+        {
+          "student_id": "empty_150",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_240",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_90",
+          "risk_probability": 0.9971,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_60",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "future_only",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_30",
+          "risk_probability": 0.9912,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_1",
+          "risk_probability": 0.983,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "scenario_base",
+          "risk_probability": 0.8907,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "below-average scores (avg 50.0)",
+            "very low platform engagement (5 clicks)",
+            "no activity for 59 days"
+          ],
+          "completeness_pct": 90.3
+        },
+        {
+          "student_id": "module_CCC",
+          "risk_probability": 0.7584,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_FFF",
+          "risk_probability": 0.7532,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "scenario_overlay",
+          "risk_probability": 0.6723,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "very low platform engagement (14 clicks)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_DDD",
+          "risk_probability": 0.6463,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "boundaries",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_low",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_high",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_UNKNOWN",
+          "risk_probability": 0.6108,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_AAA",
+          "risk_probability": 0.6081,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "empty_0",
+          "risk_probability": 0.6007,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "module_EEE",
+          "risk_probability": 0.5914,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_GGG",
+          "risk_probability": 0.5813,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        }
+      ]
+    },
+    "0.2": {
+      "total_students": 20,
+      "high_risk_count": 10,
+      "medium_risk_count": 9,
+      "low_risk_count": 1,
+      "threshold_used": 0.2,
+      "results": [
+        {
+          "student_id": "empty_150",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_240",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_90",
+          "risk_probability": 0.9971,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_60",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "future_only",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_30",
+          "risk_probability": 0.9912,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_1",
+          "risk_probability": 0.983,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "scenario_base",
+          "risk_probability": 0.8907,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "below-average scores (avg 50.0)",
+            "very low platform engagement (5 clicks)",
+            "no activity for 59 days"
+          ],
+          "completeness_pct": 90.3
+        },
+        {
+          "student_id": "module_CCC",
+          "risk_probability": 0.7584,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_FFF",
+          "risk_probability": 0.7532,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "scenario_overlay",
+          "risk_probability": 0.6723,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "very low platform engagement (14 clicks)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_DDD",
+          "risk_probability": 0.6463,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "boundaries",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_low",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_high",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_UNKNOWN",
+          "risk_probability": 0.6108,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_AAA",
+          "risk_probability": 0.6081,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "empty_0",
+          "risk_probability": 0.6007,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "module_EEE",
+          "risk_probability": 0.5914,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_GGG",
+          "risk_probability": 0.5813,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        }
+      ]
+    },
+    "0.9": {
+      "total_students": 20,
+      "high_risk_count": 10,
+      "medium_risk_count": 1,
+      "low_risk_count": 9,
+      "threshold_used": 0.9,
+      "results": [
+        {
+          "student_id": "empty_150",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_240",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_90",
+          "risk_probability": 0.9971,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_60",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "future_only",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_30",
+          "risk_probability": 0.9912,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_1",
+          "risk_probability": 0.983,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "scenario_base",
+          "risk_probability": 0.8907,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "below-average scores (avg 50.0)",
+            "very low platform engagement (5 clicks)",
+            "no activity for 59 days"
+          ],
+          "completeness_pct": 90.3
+        },
+        {
+          "student_id": "module_CCC",
+          "risk_probability": 0.7584,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_FFF",
+          "risk_probability": 0.7532,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "scenario_overlay",
+          "risk_probability": 0.6723,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "very low platform engagement (14 clicks)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_DDD",
+          "risk_probability": 0.6463,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "boundaries",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_low",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_high",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_UNKNOWN",
+          "risk_probability": 0.6108,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_AAA",
+          "risk_probability": 0.6081,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "empty_0",
+          "risk_probability": 0.6007,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "module_EEE",
+          "risk_probability": 0.5914,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_GGG",
+          "risk_probability": 0.5813,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        }
+      ]
+    },
+    "0.0": {
+      "total_students": 20,
+      "high_risk_count": 10,
+      "medium_risk_count": 9,
+      "low_risk_count": 1,
+      "threshold_used": 0.0,
+      "results": [
+        {
+          "student_id": "empty_150",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_240",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_90",
+          "risk_probability": 0.9971,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_60",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "future_only",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_30",
+          "risk_probability": 0.9912,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_1",
+          "risk_probability": 0.983,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "scenario_base",
+          "risk_probability": 0.8907,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "below-average scores (avg 50.0)",
+            "very low platform engagement (5 clicks)",
+            "no activity for 59 days"
+          ],
+          "completeness_pct": 90.3
+        },
+        {
+          "student_id": "module_CCC",
+          "risk_probability": 0.7584,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_FFF",
+          "risk_probability": 0.7532,
+          "risk_level": "HIGH",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "scenario_overlay",
+          "risk_probability": 0.6723,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "very low platform engagement (14 clicks)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_DDD",
+          "risk_probability": 0.6463,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "boundaries",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_low",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_high",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_UNKNOWN",
+          "risk_probability": 0.6108,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_AAA",
+          "risk_probability": 0.6081,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "empty_0",
+          "risk_probability": 0.6007,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "module_EEE",
+          "risk_probability": 0.5914,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_GGG",
+          "risk_probability": 0.5813,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        }
+      ]
+    },
+    "1.1": {
+      "total_students": 20,
+      "high_risk_count": 10,
+      "medium_risk_count": 1,
+      "low_risk_count": 9,
+      "threshold_used": 1.1,
+      "results": [
+        {
+          "student_id": "empty_150",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_240",
+          "risk_probability": 0.9981,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_90",
+          "risk_probability": 0.9971,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_60",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "future_only",
+          "risk_probability": 0.9943,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_30",
+          "risk_probability": 0.9912,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "empty_1",
+          "risk_probability": 0.983,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "scenario_base",
+          "risk_probability": 0.8907,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "below-average scores (avg 50.0)",
+            "very low platform engagement (5 clicks)",
+            "no activity for 59 days"
+          ],
+          "completeness_pct": 90.3
+        },
+        {
+          "student_id": "module_CCC",
+          "risk_probability": 0.7584,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_FFF",
+          "risk_probability": 0.7532,
+          "risk_level": "HIGH",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "scenario_overlay",
+          "risk_probability": 0.6723,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "very low platform engagement (14 clicks)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_DDD",
+          "risk_probability": 0.6463,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "boundaries",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_low",
+          "risk_probability": 0.6301,
+          "risk_level": "MEDIUM",
+          "at_risk": 1,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "override_high",
+          "risk_probability": 0.6301,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_UNKNOWN",
+          "risk_probability": 0.6108,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_AAA",
+          "risk_probability": 0.6081,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "empty_0",
+          "risk_probability": 0.6007,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "no assessment submissions yet",
+            "no VLE activity recorded yet"
+          ],
+          "completeness_pct": 35.5
+        },
+        {
+          "student_id": "module_EEE",
+          "risk_probability": 0.5914,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        },
+        {
+          "student_id": "module_GGG",
+          "risk_probability": 0.5813,
+          "risk_level": "LOW",
+          "at_risk": 0,
+          "explanation": [
+            "score declining (-50.5 points)",
+            "engagement dropping (-42 clicks second half)"
+          ],
+          "completeness_pct": 96.8
+        }
+      ]
+    }
+  }
+}
