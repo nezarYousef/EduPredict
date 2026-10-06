@@ -1,17 +1,10 @@
 from typing import Optional
 
-from psycopg.types.json import Json
-
 from db import get_connection
+from prediction_inputs import assessment_from_row, request_from_row, vle_event_from_row
+from prediction_store import save_prediction_with_cursor
 from predictor import EduPredictor
-from schemas import AssessmentSubmission, Demographics, PredictRequest, PredictResponse, VLEEvent
-from student_data import (
-    age_numeric,
-    disability_bin,
-    edu_numeric,
-    gender_bin,
-    imd_numeric,
-)
+from schemas import AssessmentSubmission, PredictRequest, VLEEvent
 
 
 def list_clocks() -> list[dict]:
@@ -186,11 +179,7 @@ def run_demo_predictions(predictor: EduPredictor, limit: int = 150) -> dict:
             vle_by_enrollment: dict[int, list[VLEEvent]] = {}
             for row in cur.fetchall():
                 vle_by_enrollment.setdefault(row["enrollment_id"], []).append(
-                    VLEEvent(
-                        date=row["date"],
-                        sum_click=row["sum_click"],
-                        activity_type=row["activity_type"],
-                    )
+                    vle_event_from_row(row)
                 )
 
             cur.execute(
@@ -212,12 +201,7 @@ def run_demo_predictions(predictor: EduPredictor, limit: int = 150) -> dict:
             assessments_by_enrollment: dict[int, list[AssessmentSubmission]] = {}
             for row in cur.fetchall():
                 assessments_by_enrollment.setdefault(row["enrollment_id"], []).append(
-                    AssessmentSubmission(
-                        date_submitted=row["date_submitted"],
-                        score=float(row["score"]) if row["score"] is not None else 0.0,
-                        assessment_type=row["assessment_type"],
-                        date=float(row["date"]) if row["date"] is not None else None,
-                    )
+                    assessment_from_row(row)
                 )
 
             for student in students:
@@ -227,7 +211,7 @@ def run_demo_predictions(predictor: EduPredictor, limit: int = 150) -> dict:
                     assessments_by_enrollment.get(student["enrollment_id"], []),
                 )
                 response = predictor.predict(req)
-                _save_prediction_with_cursor(cur, student["enrollment_id"], response)
+                save_prediction_with_cursor(cur, student["enrollment_id"], response)
                 results.append(
                     {
                         "enrollment_id": student["enrollment_id"],
@@ -247,7 +231,9 @@ def run_demo_predictions(predictor: EduPredictor, limit: int = 150) -> dict:
         "high_risk_count": sum(1 for row in results if row["risk_level"] == "HIGH"),
         "medium_risk_count": sum(1 for row in results if row["risk_level"] == "MEDIUM"),
         "low_risk_count": sum(1 for row in results if row["risk_level"] == "LOW"),
-        "results": sorted(results, key=lambda row: row["risk_probability"], reverse=True),
+        "results": sorted(
+            results, key=lambda row: row["risk_probability"], reverse=True
+        ),
     }
 
 
@@ -258,76 +244,12 @@ def _request_from_row(
 ) -> PredictRequest:
     day = row["day_of_course"]
 
-    return PredictRequest(
-        day_of_course=day,
-        demographics=Demographics(
-            code_module=row["code_module"],
-            gender_bin=gender_bin(row["gender"]),
-            disability_bin=disability_bin(row["disability"]),
-            age_numeric=age_numeric(row["age_band"]),
-            edu_numeric=edu_numeric(row["highest_education"]),
-            imd_numeric=imd_numeric(row["imd_band"]),
-            num_of_prev_attempts=row["num_of_prev_attempts"] or 0,
-            studied_credits=row["studied_credits"] or 1,
-            module_total_assessments=row["module_total_assessments"] or 1,
-            course_length=row["course_length"],
-        ),
+    return request_from_row(
+        row,
         vle_log=[event for event in vle_log if event.date <= day],
-        assess_log=[submission for submission in assess_log if submission.date_submitted <= day],
-    )
-
-
-def _save_prediction_with_cursor(cur, enrollment_id: int, response: PredictResponse) -> None:
-    cur.execute(
-        """
-        INSERT INTO predictions (
-            enrollment_id,
-            day_of_course,
-            risk_probability,
-            risk_level,
-            at_risk,
-            threshold_used,
-            recommended_action,
-            explanation,
-            model_confidence,
-            data_completeness
-        )
-        VALUES (
-            %(enrollment_id)s,
-            %(day_of_course)s,
-            %(risk_probability)s,
-            %(risk_level)s,
-            %(at_risk)s,
-            %(threshold_used)s,
-            %(recommended_action)s,
-            %(explanation)s,
-            %(model_confidence)s,
-            %(data_completeness)s
-        )
-        ON CONFLICT (enrollment_id, day_of_course) DO UPDATE
-        SET
-            risk_probability = EXCLUDED.risk_probability,
-            risk_level = EXCLUDED.risk_level,
-            at_risk = EXCLUDED.at_risk,
-            threshold_used = EXCLUDED.threshold_used,
-            recommended_action = EXCLUDED.recommended_action,
-            explanation = EXCLUDED.explanation,
-            model_confidence = EXCLUDED.model_confidence,
-            data_completeness = EXCLUDED.data_completeness,
-            created_at = NOW()
-        """,
-        {
-            "enrollment_id": enrollment_id,
-            "day_of_course": response.model_confidence.day_of_course,
-            "risk_probability": response.risk_probability,
-            "risk_level": response.risk_level.value,
-            "at_risk": bool(response.at_risk),
-            "threshold_used": response.threshold_used,
-            "recommended_action": response.recommended_action,
-            "explanation": Json(response.explanation),
-            "model_confidence": Json(response.model_confidence.model_dump()),
-            "data_completeness": Json(response.data_completeness.model_dump()),
-        },
+        assess_log=[
+            submission for submission in assess_log if submission.date_submitted <= day
+        ],
     )
 
 

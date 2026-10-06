@@ -1,10 +1,8 @@
-from contextlib import asynccontextmanager
 import logging
-import os
+from contextlib import asynccontextmanager
 from typing import Optional
 
 from fastapi import Depends, FastAPI, Header, HTTPException
-import psycopg
 
 from admin_data import (
     list_clocks,
@@ -12,7 +10,10 @@ from admin_data import (
     run_demo_predictions,
     update_clock,
 )
+from api_support import service_error, verify_admin_key
+from db import get_connection
 from predictor import EduPredictor
+from scenario_data import apply_scenario
 from schemas import (
     BatchRequest,
     BatchResponse,
@@ -21,37 +22,15 @@ from schemas import (
     PredictResponse,
     ScenarioEvidence,
 )
-from student_data import build_student_prediction_request, next_assessment_due_date, save_prediction
-from db import get_connection
-from scenario_data import apply_scenario
+from student_data import (
+    build_student_prediction_request,
+    next_assessment_due_date,
+    save_prediction,
+)
 
 
 predictor: EduPredictor | None = None
 logger = logging.getLogger(__name__)
-
-
-def service_error(stage: str, error: Exception, *, database: bool = False) -> HTTPException:
-    # Exception messages can contain connection strings, SQL, or student data.
-    logger.error(
-        "EduPredict %s failed: %s (sqlstate=%s)",
-        stage,
-        type(error).__name__,
-        getattr(error, "sqlstate", None),
-    )
-    if database and isinstance(error, (psycopg.Error, OSError, RuntimeError)):
-        return HTTPException(
-            status_code=503,
-            detail="Prediction data service is temporarily unavailable.",
-        )
-    return HTTPException(status_code=500, detail="Prediction service is temporarily unavailable.")
-
-
-def verify_admin_key(x_admin_key: Optional[str] = Header(default=None)) -> None:
-    expected = os.getenv("ADMIN_API_KEY")
-    if not expected:
-        raise HTTPException(status_code=503, detail="ADMIN_API_KEY is not configured")
-    if x_admin_key != expected:
-        raise HTTPException(status_code=401, detail="Invalid admin key")
 
 
 @asynccontextmanager
@@ -90,7 +69,9 @@ def health():
 @app.get("/ready", tags=["system"])
 def ready():
     if predictor is None:
-        raise HTTPException(status_code=503, detail="Prediction service is temporarily unavailable.")
+        raise HTTPException(
+            status_code=503, detail="Prediction service is temporarily unavailable."
+        )
     try:
         with get_connection() as conn:
             with conn.cursor() as cur:
@@ -102,7 +83,10 @@ def ready():
             type(error).__name__,
             getattr(error, "sqlstate", None),
         )
-        raise HTTPException(status_code=503, detail="Prediction data service is temporarily unavailable.") from None
+        raise HTTPException(
+            status_code=503,
+            detail="Prediction data service is temporarily unavailable.",
+        ) from None
     return {"status": "ready"}
 
 
@@ -159,7 +143,9 @@ def predict_student_from_database(
             threshold=threshold,
         )
     except LookupError:
-        raise HTTPException(status_code=404, detail="No enrollment found for this student") from None
+        raise HTTPException(
+            status_code=404, detail="No enrollment found for this student"
+        ) from None
     except Exception as e:
         raise service_error("student data load", e, database=True) from None
 
@@ -198,9 +184,13 @@ def predict_student_scenario(
             base, scenario, enrollment_id, next_assessment_due_date
         )
     except LookupError:
-        raise HTTPException(status_code=404, detail="No enrollment found for this student") from None
+        raise HTTPException(
+            status_code=404, detail="No enrollment found for this student"
+        ) from None
     except ValueError:
-        raise HTTPException(status_code=422, detail="Scenario evidence is invalid or stale.") from None
+        raise HTTPException(
+            status_code=422, detail="Scenario evidence is invalid or stale."
+        ) from None
     except Exception as error:
         raise service_error("scenario data load", error, database=True) from None
     try:
