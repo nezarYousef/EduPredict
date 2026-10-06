@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Tests and equivalence (Python 3.11.9)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # The equivalence audit reads the original refactor baseline from Git.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.11.9'
+          cache: pip
+          cache-dependency-path: |
+            deliverable/requirements.txt
+            deliverable/requirements-dev.txt
+
+      - name: Install dependencies
+        run: python -m pip install -r deliverable/requirements.txt -r deliverable/requirements-dev.txt
+
+      - name: Run full test suite
+        run: PYTHONPATH=deliverable/api python -m pytest -q deliverable/tests
+
+      - name: Run refactor equivalence audit
+        run: python deliverable/tests/verify_refactor_equivalence.py
