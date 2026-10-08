@@ -3,7 +3,7 @@ import sys
 import types
 
 import psycopg
-from fastapi.testclient import TestClient
+from service_client import TestClient
 
 # Route tests isolate the API from loading the model artifact at import time.
 predictor_module = types.ModuleType("predictor")
@@ -107,12 +107,12 @@ def test_readiness_database_failure_is_safe(monkeypatch, caplog):
     assert "OperationalError" in caplog.text
 
 
-def test_student_prediction_persists(monkeypatch):
+def test_explicit_post_prediction_persists(monkeypatch):
     saved = []
     monkeypatch.setattr(main, "predictor", FakePredictor())
     monkeypatch.setattr(main, "build_student_prediction_request", lambda **kwargs: (32603, kwargs))
     monkeypatch.setattr(main, "save_prediction", lambda enrollment_id, response: saved.append((enrollment_id, response)))
-    response = TestClient(main.app).get(
+    response = TestClient(main.app).post(
         "/students/2026/prediction?code_module=BBB&code_presentation=2013B"
     )
     assert response.status_code == 200
@@ -142,7 +142,7 @@ def test_prediction_save_failure_is_safe(monkeypatch):
         raise psycopg.OperationalError("host=private.example")
 
     monkeypatch.setattr(main, "save_prediction", fail_save)
-    response = TestClient(main.app).get("/students/2026/prediction")
+    response = TestClient(main.app).post("/students/2026/prediction")
     assert response.status_code == 503
     assert "private.example" not in response.text
 

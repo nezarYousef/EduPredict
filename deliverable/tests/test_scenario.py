@@ -1,4 +1,4 @@
-from fastapi.testclient import TestClient
+from service_client import TestClient
 import pytest
 
 import main
