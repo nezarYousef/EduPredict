@@ -11,6 +11,7 @@ from admin_data import (
     update_clock,
 )
 from api_support import service_error, verify_admin_key
+from service_auth import require_student_actor, require_service_admin
 from db import get_connection
 from predictor import EduPredictor
 from scenario_data import apply_scenario
@@ -90,7 +91,7 @@ def ready():
     return {"status": "ready"}
 
 
-@app.post("/predict", response_model=PredictResponse, tags=["prediction"])
+@app.post("/predict", response_model=PredictResponse, tags=["prediction"], dependencies=[Depends(require_service_admin)])
 def predict(req: PredictRequest):
     if predictor is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
@@ -101,7 +102,7 @@ def predict(req: PredictRequest):
         raise service_error("predict", e) from None
 
 
-@app.post("/predict/batch", response_model=BatchResponse, tags=["prediction"])
+@app.post("/predict/batch", response_model=BatchResponse, tags=["prediction"], dependencies=[Depends(require_service_admin)])
 def predict_batch(req: BatchRequest):
     if predictor is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
@@ -125,6 +126,7 @@ def predict_batch(req: BatchRequest):
     "/students/{id_student}/prediction",
     response_model=PredictResponse,
     tags=["students"],
+    dependencies=[Depends(require_student_actor)],
 )
 def predict_student_from_database(
     id_student: int,
@@ -132,6 +134,25 @@ def predict_student_from_database(
     code_presentation: Optional[str] = None,
     threshold: Optional[float] = None,
 ):
+    return _student_prediction(id_student, code_module, code_presentation, threshold, persist=False)
+
+
+@app.post(
+    "/students/{id_student}/prediction",
+    response_model=PredictResponse,
+    tags=["students"],
+    dependencies=[Depends(require_student_actor)],
+)
+def generate_student_prediction(
+    id_student: int,
+    code_module: Optional[str] = None,
+    code_presentation: Optional[str] = None,
+    threshold: Optional[float] = None,
+):
+    return _student_prediction(id_student, code_module, code_presentation, threshold, persist=True)
+
+
+def _student_prediction(id_student, code_module, code_presentation, threshold, *, persist):
     if predictor is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
 
@@ -154,10 +175,11 @@ def predict_student_from_database(
     except Exception as e:
         raise service_error("student prediction", e) from None
 
-    try:
-        save_prediction(enrollment_id, response)
-    except Exception as e:
-        raise service_error("prediction save", e, database=True) from None
+    if persist:
+        try:
+            save_prediction(enrollment_id, response)
+        except Exception as e:
+            raise service_error("prediction save", e, database=True) from None
     return response
 
 
@@ -165,6 +187,7 @@ def predict_student_from_database(
     "/students/{id_student}/scenario-prediction",
     response_model=PredictResponse,
     tags=["students"],
+    dependencies=[Depends(require_student_actor)],
 )
 def predict_student_scenario(
     id_student: int,
