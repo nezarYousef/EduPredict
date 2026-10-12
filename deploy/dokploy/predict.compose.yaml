@@ -1,0 +1,41 @@
+services:
+  predict:
+    restart: unless-stopped
+    init: true
+    security_opt:
+    - no-new-privileges:true
+    cap_drop:
+    - ALL
+    pids_limit: 256
+    stop_grace_period: 45s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+    image: ${PREDICT_IMAGE:?Set PREDICT_IMAGE in the reviewed Dokploy environment}
+    mem_limit: 1536m
+    cpus: 1.5
+    read_only: true
+    tmpfs:
+    - /tmp:rw,noexec,nosuid,size=64m
+    networks:
+      providers:
+        aliases:
+        - predict
+      postgres: {}
+    expose:
+    - '8000'
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?Set DATABASE_URL in the reviewed Dokploy environment}
+      EDUPREDICT_SERVICE_KEY: ${EDUPREDICT_SERVICE_KEY:?Set EDUPREDICT_SERVICE_KEY
+        in the reviewed Dokploy environment}
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+networks:
+  providers:
+    external: true
+    name: ${PROVIDER_NETWORK:?Set PROVIDER_NETWORK in the reviewed Dokploy environment}
+  postgres:
+    external: true
+    name: ${POSTGRES_NETWORK:?Set POSTGRES_NETWORK in the reviewed Dokploy environment}

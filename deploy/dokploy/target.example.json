@@ -1,0 +1,7 @@
+{
+  "dokploy_url": "__SET_DOKPLOY_HTTPS_ORIGIN__",
+  "compose_id": "__SET_APPROVED_COMPOSE_ID__",
+  "source_type": "raw",
+  "environment": "__SET_STAGING_OR_PRODUCTION__",
+  "service": "__SET_SINGLE_SERVICE_NAME__"
+}

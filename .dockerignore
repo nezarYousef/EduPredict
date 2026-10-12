@@ -1,0 +1,8 @@
+.git
+**/.env*
+**/.venv
+**/__pycache__
+**/*.log
+**/*.dump
+**/*.age
+# Model artifact is deliberately included without modification.

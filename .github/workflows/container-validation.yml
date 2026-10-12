@@ -1,0 +1,23 @@
+name: Container validation
+on:
+  pull_request:
+  push:
+    branches: [main, staging]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: containers-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  containers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: docker build --build-arg SOURCE_REVISION=$GITHUB_SHA -t predict:$GITHUB_SHA .
+      - name: Verify unchanged model artifact and native library
+        run: |
+          docker run --rm --network none --entrypoint python predict:$GITHUB_SHA -c "import hashlib,lightgbm; from pathlib import Path; assert hashlib.sha256(Path('edu_model/temporal_lgbm_model_final.pkl').read_bytes()).hexdigest()=='29dcd923ff9024a9966f84c8c9f5ff5fca71d0f6daf94d75fc498a9d2ae35757'"

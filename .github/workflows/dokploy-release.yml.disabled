@@ -1,0 +1,82 @@
+# INACTIVE: .disabled extension is intentional. Activation requires separate approval.
+# Configure protected GitHub environments staging/production first; production requires reviewers.
+name: Controlled Dokploy release
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: Full verified source SHA
+        required: true
+        type: string
+      environment:
+        type: choice
+        options: [staging, production]
+        required: true
+      service:
+        type: choice
+        options: [predict]
+        required: true
+permissions:
+  contents: read
+  actions: read
+  packages: write
+concurrency:
+  group: dokploy-${{ inputs.environment }}-${{ inputs.service }}
+  cancel-in-progress: false
+jobs:
+  release:
+    if: vars.ENABLE_DOKPLOY_RELEASE == 'true'
+    environment: ${{ inputs.environment }}
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install PyYAML==6.0.3
+      - name: Enforce same-commit CI
+        env:
+          RELEASE_SHA: ${{ inputs.sha }}
+          GH_TOKEN: ${{ github.token }}
+        run: python deploy/scripts/check_release_ci.py
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+      - name: Select reviewed build file
+        id: source
+        env:
+          SERVICE: ${{ inputs.service }}
+        run: |
+          echo "file=Dockerfile" >> "$GITHUB_OUTPUT"
+          echo "image=ghcr.io/${GITHUB_REPOSITORY,,}/$SERVICE" >> "$GITHUB_OUTPUT"
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        id: image
+        with:
+          context: .
+          file: ${{ steps.source.outputs.file }}
+          platforms: linux/amd64
+          push: true
+          build-args: SOURCE_REVISION=${{ inputs.sha }}
+          tags: ${{ steps.source.outputs.image }}:sha-${{ inputs.sha }}
+          provenance: true
+          sbom: true
+      - name: Render immutable runtime manifest
+        env:
+          SERVICE: ${{ inputs.service }}
+          IMAGE: ${{ steps.source.outputs.image }}@${{ steps.image.outputs.digest }}
+        run: python deploy/scripts/render_release.py --compose "deploy/dokploy/$SERVICE.compose.yaml" --service "$SERVICE" --image "$IMAGE" --output release.compose.yaml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ inputs.service }}-${{ inputs.sha }}
+          path: release.compose.yaml
+# No hosting API or webhook is called. Initial staging/production apply remains a reviewed manual action.
+# Future automatic staging: add a trusted workflow_run trigger, retain BOTH exact-SHA gates,
+# then apply this generated artifact to its one approved raw Compose target via compose.update
+# (composeFile only, no env field), followed by compose.deploy and a bounded health/contract check.
+# The dormant deploy/scripts/apply_release.py adapter requires installed-version validation and separate activation approval.
