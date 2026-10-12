@@ -28,3 +28,20 @@ jobs:
       - name: Native LightGBM, exact numerical fixtures and scoped HTTP contracts
         run: |
           docker run --rm --network none --memory 1536m --cpus 1.5 --cap-drop ALL --security-opt no-new-privileges:true --read-only --tmpfs /tmp predict-tests:$GITHUB_SHA
+      - name: Production startup, PG18 readiness and synthetic service boundary
+        run: |
+          docker network create --internal predict-ci-fixture
+          docker run -d --name postgres-fixture --network predict-ci-fixture --memory 512m -e POSTGRES_PASSWORD=synthetic-ci-only -e POSTGRES_DB=fixture --health-cmd 'pg_isready -U postgres -d fixture' --health-interval 2s postgres:18-bookworm
+          python deploy/scripts/wait-container.py postgres-fixture
+          docker run -d --name predict-fixture --network predict-ci-fixture --memory 1536m --cpus 1.5 --cap-drop ALL --security-opt no-new-privileges:true --read-only --tmpfs /tmp -e DATABASE_URL=postgresql://postgres:synthetic-ci-only@postgres-fixture/fixture -e EDUPREDICT_SERVICE_KEY=synthetic-service-key-00000000000000000000 predict:$GITHUB_SHA
+          python deploy/scripts/wait-container.py predict-fixture
+          docker exec -i predict-fixture python < deploy/tests/container_smoke.py
+      - name: Idle runtime snapshot and local image size (not load capacity)
+        run: |
+          docker stats --no-stream --format '{{.Name}} {{.CPUPerc}} {{.MemUsage}}' predict-fixture
+          docker image inspect --format '{{.RepoTags}} {{.Size}}' predict:$GITHUB_SHA
+      - name: Cleanup only these fixtures
+        if: always()
+        run: |
+          docker rm -f predict-fixture postgres-fixture || true
+          docker network rm predict-ci-fixture || true
