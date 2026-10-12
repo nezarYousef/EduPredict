@@ -2,7 +2,7 @@ name: Container validation
 on:
   pull_request:
   push:
-    branches: [main, staging]
+    branches: [main, staging, codex/dokploy-staging-preparation]
   workflow_dispatch:
 permissions:
   contents: read
@@ -12,12 +12,19 @@ concurrency:
 jobs:
   containers:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 40
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.11"
+      - run: pip install PyYAML==6.0.3
+      - run: python -m unittest discover -s deploy/tests -v
+      - run: python deploy/scripts/ci_configuration.py
       - run: docker build --build-arg SOURCE_REVISION=$GITHUB_SHA -t predict:$GITHUB_SHA .
-      - name: Verify unchanged model artifact and native library
+      - run: docker build --build-arg TEST_IMAGE=predict:$GITHUB_SHA -f Dockerfile.container-tests -t predict-tests:$GITHUB_SHA .
+      - name: Native LightGBM, exact numerical fixtures and scoped HTTP contracts
         run: |
-          docker run --rm --network none --entrypoint python predict:$GITHUB_SHA -c "import hashlib,lightgbm; from pathlib import Path; assert hashlib.sha256(Path('edu_model/temporal_lgbm_model_final.pkl').read_bytes()).hexdigest()=='29dcd923ff9024a9966f84c8c9f5ff5fca71d0f6daf94d75fc498a9d2ae35757'"
+          docker run --rm --network none --memory 1536m --cpus 1.5 --cap-drop ALL --security-opt no-new-privileges:true --read-only --tmpfs /tmp predict-tests:$GITHUB_SHA

@@ -1,0 +1,15 @@
+**
+!tests/
+!tests/**
+!deliverable/
+!deliverable/tests/
+!deliverable/tests/**
+!deploy/
+!deploy/tests/
+!deploy/tests/**
+**/__pycache__
+**/.env*
+**/*.pem
+**/*.key
+**/*.age
+**/*.dump

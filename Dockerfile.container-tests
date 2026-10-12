@@ -1,0 +1,9 @@
+# Test-only derivative; runtime code is inherited from the built production image.
+ARG TEST_IMAGE
+FROM ${TEST_IMAGE}
+USER root
+RUN pip install --no-cache-dir pytest==8.0.0 httpx==0.26.0
+COPY deliverable/tests/ /app/tests/
+ENV PYTHONPATH=/app
+USER predictor
+CMD ["python", "-m", "pytest", "-q", "-p", "no:cacheprovider", "tests"]

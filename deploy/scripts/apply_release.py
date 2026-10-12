@@ -1,7 +1,7 @@
 """Dormant, explicitly authorized single-service Dokploy apply adapter.
 Default is a local dry run. No GET requests or environment-value retrieval.
 """
-import argparse,json,os,re,time,urllib.request,urllib.error
+import argparse,json,os,re,urllib.request,urllib.error
 from pathlib import Path
 import yaml
 
@@ -27,10 +27,15 @@ def prepare(base, release, target):
     return {'composeId':target['compose_id'],'composeFile':yaml.safe_dump(release,sort_keys=False)}
 
 
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, request, response, code, message, headers, new_url):
+        # Never forward the control-plane key to a redirected origin/path.
+        return None
+
 def post(origin, method, payload, key):
     request=urllib.request.Request(origin+'/api/'+method,data=json.dumps(payload).encode(),headers={'Content-Type':'application/json','x-api-key':key},method='POST')
     # Do not print/read a returned service object: it may include configuration.
-    with urllib.request.urlopen(request,timeout=30) as response:
+    with urllib.request.build_opener(NoRedirect()).open(request,timeout=30) as response:
         if response.status not in (200,201,202,204):raise RuntimeError('Control-plane operation rejected')
 
 
