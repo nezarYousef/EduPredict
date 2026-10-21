@@ -13,6 +13,7 @@ from admin_data import (
 from api_support import service_error, verify_admin_key
 from service_auth import require_student_actor, require_service_admin
 from db import get_connection
+from write_policy import require_database_writes
 from predictor import EduPredictor
 from scenario_data import apply_scenario
 from schemas import (
@@ -141,7 +142,7 @@ def predict_student_from_database(
     "/students/{id_student}/prediction",
     response_model=PredictResponse,
     tags=["students"],
-    dependencies=[Depends(require_student_actor)],
+    dependencies=[Depends(require_student_actor), Depends(require_database_writes)],
 )
 def generate_student_prediction(
     id_student: int,
@@ -239,6 +240,7 @@ def admin_tick_clock(
     x_admin_key: Optional[str] = Header(default=None),
 ):
     verify_admin_key(x_admin_key)
+    require_database_writes()
     try:
         return update_clock(
             code_module=code_module,
@@ -259,6 +261,7 @@ def admin_reset_clock(
     x_admin_key: Optional[str] = Header(default=None),
 ):
     verify_admin_key(x_admin_key)
+    require_database_writes()
     try:
         return update_clock(
             code_module=code_module,
@@ -274,7 +277,7 @@ def admin_reset_clock(
 @app.post(
     "/admin/predictions/run-demo",
     tags=["admin"],
-    dependencies=[Depends(verify_admin_key)],
+    dependencies=[Depends(verify_admin_key), Depends(require_database_writes)],
 )
 def admin_run_demo_predictions(limit: int = 150):
     if predictor is None:
