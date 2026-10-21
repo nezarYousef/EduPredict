@@ -92,8 +92,10 @@ Do not deploy or merge until these gates are satisfied:
    Verify /health=200 and /ready=200, read-only identity and exact column privileges.
 6. Because old images contain key-named entries, privately assess exposure and coordinate
    new runtime-only service/admin credentials. Synchronize the service key in EduPredict
-   and the Backend within the reviewed window; update the admin key only in legitimate
-   private operator clients. Do not put new keys into the old Nixpacks build path.
+   and the Backend within the reviewed window. The accepted Backend admin route also
+   reads ADMIN_API_KEY for run-demo: coordinate any existing Backend admin-key setting
+   and legitimate private operator clients when rotating that key. Do not add new admin
+   access or enable writes. Do not put new keys into the old Nixpacks build path.
    A short upstream-authentication interruption may occur without a dual-key protocol;
    do not assume an atomic cross-service environment update exists.
 7. Validate authentication using synthetic requests that cannot persist data. Keep all
