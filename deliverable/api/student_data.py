@@ -15,6 +15,7 @@ from prediction_inputs import (
 )
 from prediction_store import save_prediction_with_cursor
 from schemas import PredictRequest, PredictResponse
+from write_policy import require_database_writes
 
 
 def build_student_prediction_request(
@@ -138,6 +139,7 @@ def next_assessment_due_date(enrollment_id: int, assessment_type: str) -> Option
 
 
 def save_prediction(enrollment_id: int, response: PredictResponse) -> None:
+    require_database_writes()
     with get_connection() as conn:
         with conn.cursor() as cur:
             save_prediction_with_cursor(cur, enrollment_id, response)

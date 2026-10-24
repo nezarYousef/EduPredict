@@ -4,12 +4,14 @@ from psycopg import Cursor
 from psycopg.types.json import Json
 
 from schemas import PredictResponse
+from write_policy import require_database_writes
 
 
 def save_prediction_with_cursor(
     cur: Cursor, enrollment_id: int, response: PredictResponse
 ) -> None:
     """Upsert one result; the caller owns the cursor, connection and transaction."""
+    require_database_writes()
     cur.execute(
         """
         INSERT INTO predictions (

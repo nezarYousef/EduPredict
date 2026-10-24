@@ -5,6 +5,7 @@ from prediction_inputs import assessment_from_row, request_from_row, vle_event_f
 from prediction_store import save_prediction_with_cursor
 from predictor import EduPredictor
 from schemas import AssessmentSubmission, PredictRequest, VLEEvent
+from write_policy import require_database_writes
 
 
 def list_clocks() -> list[dict]:
@@ -37,6 +38,7 @@ def update_clock(
     tick_days: int = 0,
     is_running: Optional[bool] = None,
 ) -> dict:
+    require_database_writes()
     with get_connection() as conn:
         with conn.cursor() as cur:
             cur.execute(
@@ -116,6 +118,7 @@ def demo_students() -> list[dict]:
 
 
 def run_demo_predictions(predictor: EduPredictor, limit: int = 150) -> dict:
+    require_database_writes()
     results = []
 
     with get_connection() as conn:
